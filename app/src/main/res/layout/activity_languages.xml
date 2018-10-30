@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.enginious.snowblossom.LanguagesActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/activity_languages_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:foregroundTint="@color/colorAccent"
+        android:elevation="4dp"
+        android:theme="@style/AppTheme.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+        <ImageView
+            android:layout_width="30dp"
+            android:contentDescription=""
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:src="@drawable/leafless_tree"/>
+    </android.support.v7.widget.Toolbar>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_activity_languages"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

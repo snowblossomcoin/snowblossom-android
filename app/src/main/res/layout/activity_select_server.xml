@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.enginious.snowblossom.SelectServerActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        >
+        <ImageView
+            android:layout_marginTop="10dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/leafless_tree" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal"
+        android:gravity="bottom|center_horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="20dp"
+
+        >
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Server"
+                    android:paddingLeft="5dp"
+                    android:fontFamily="@font/pt_sans"
+                    android:textColor="@color/colorPrimaryDark"
+                    />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pt_sans"
+                    android:hint="Enter Server URL"
+                    android:inputType="textUri"
+                    android:text="node.snowblossom.cluelessperson.com"
+                    android:textSize="18sp"
+                    android:id="@+id/et_url_server"
+                    android:textCursorDrawable="@null"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pt_sans"
+                    android:paddingLeft="5dp"
+                    android:text="Port"
+
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pt_sans"
+                    android:hint="Port"
+                    android:textSize="18sp"
+                    android:text="2339"
+                    android:inputType="number"
+                    android:id="@+id/et_port_server"
+                    android:textCursorDrawable="@null"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            >
+            <RadioGroup
+                android:orientation="horizontal"
+                android:id="@+id/radio_net_server"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <RadioButton
+                    android:id="@+id/radioMain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/colorPrimaryDark"
+
+                    android:fontFamily="@font/pt_sans"
+                    android:text="Mainnet" />
+
+                <RadioButton
+                    android:id="@+id/radioTest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/colorPrimaryDark"
+                    android:fontFamily="@font/pt_sans"
+                    android:checked="true"
+                    android:text="Testnet" />
+
+            </RadioGroup>
+
+
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center_horizontal"
+        android:layout_weight="1">
+        <Button
+            android:layout_width="240dp"
+            android:layout_height="50dp"
+            android:background="@drawable/snowbutton_purple"
+            android:fontFamily="@font/pt_sans"
+            android:text="Continue"
+            android:id="@+id/btn_connect_server"
+            android:textAllCaps="false"
+            android:textColor="@color/colorAccent" />
+    </LinearLayout>
+
+</LinearLayout>

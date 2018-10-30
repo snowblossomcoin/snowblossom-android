@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:orientation="vertical"
+    tools:context="com.enginious.snowblossom.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+        <ImageView
+            android:layout_marginTop="10dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/leafless_tree" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="vertical"
+        android:gravity="bottom|center_horizontal"
+        >
+
+        <Button
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/snowbutton_purple"
+            android:fontFamily="@font/pt_sans"
+            android:text="Create Wallet"
+            android:textAllCaps="false"
+            android:id="@+id/btn_create_main"
+            android:textColor="@color/colorAccent" />
+
+        <Button
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/snowbutton_white"
+            android:fontFamily="@font/pt_sans"
+            android:text="Import Wallet"
+            android:textAllCaps="false"
+            android:id="@+id/btn_import_main"
+            android:textColor="@color/colorPrimaryDark" />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal|bottom"
+        android:paddingBottom="20dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pt_sans"
+            android:text="Snowblossom is an open source cryptocurrency"
+            android:textColor="@color/colorPrimaryDark" />
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

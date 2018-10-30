@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical"
+    tools:context="com.enginious.snowblossom.activities.HomeActivity">
+
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:gravity="center_vertical|center_horizontal"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="...."
+                android:id="@+id/txt_balance_activty_home"
+                android:textColor="@color/colorPrimary"
+                android:textSize="42sp"
+                android:layout_marginRight="10dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SNOW"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                />
+
+        </LinearLayout>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Connecting..."
+            android:id="@+id/txt_connection_home_activity"
+            android:textColor="@color/colorPrimary"
+            />
+
+        <Button
+            android:id="@+id/btn_refresh_home_activity"
+            android:layout_marginTop="10dp"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:text="Refresh"
+            android:textColor="@color/colorPrimary"
+            android:textAllCaps="false"
+            android:textSize="11sp"
+            android:background="@drawable/snowbutton_white"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal|center_vertical"
+        >
+
+        <Button
+            android:drawablePadding="-30dp"
+            android:drawableTint="@color/colorAccent"
+            android:drawableLeft="@drawable/camera_drawable"
+            android:id="@+id/btn_camera_home_activity"
+            android:layout_width="220dp"
+            android:layout_height="60dp"
+            android:background="@drawable/snowbutton_purple"
+            android:fontFamily="@font/pt_sans"
+            android:text="Camera"
+            android:textAllCaps="false"
+            android:textColor="@color/colorAccent" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical|center_horizontal"
+        >
+        <Button
+            android:id="@+id/btn_receive_home_activity"
+            android:layout_width="220dp"
+            android:layout_height="60dp"
+            android:background="@drawable/snowbutton_green"
+            android:fontFamily="@font/pt_sans"
+            android:drawablePadding="-30dp"
+            android:drawableTint="@color/colorAccent"
+            android:drawableLeft="@drawable/received_drawable"
+            android:text="Receive"
+            android:textAllCaps="false"
+            android:textColor="@color/colorAccent" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal|center_vertical"
+        >
+        <Button
+            android:id="@+id/btn_send_home_activity"
+            android:layout_width="220dp"
+            android:layout_height="60dp"
+            android:background="@drawable/snowbutton_red"
+            android:drawablePadding="-30dp"
+            android:drawableTint="@color/colorAccent"
+            android:drawableLeft="@drawable/send_drawable"
+            android:fontFamily="@font/pt_sans"
+            android:text="Send"
+            android:textAllCaps="false"
+            android:textColor="@color/colorAccent" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal|center_vertical"
+        >
+        <Button
+            android:id="@+id/btn_settings_home_activity"
+            android:layout_width="220dp"
+            android:layout_height="60dp"
+            android:background="@drawable/snowbutton_purple"
+            android:fontFamily="@font/pt_sans"
+            android:text="Settings"
+            android:textAllCaps="false"
+            android:textColor="@color/colorAccent"
+            android:drawablePadding="-30dp"
+            android:drawableTint="@color/colorAccent"
+            android:drawableLeft="@drawable/settings_drawable"/>
+    </LinearLayout>
+
+
+</LinearLayout>

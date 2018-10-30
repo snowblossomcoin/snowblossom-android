@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:drawable="@drawable/photo_camera"
+        android:width="24dp"
+        android:height="20dp"
+        android:left="40dp"
+
+        />
+
+</layer-list >
