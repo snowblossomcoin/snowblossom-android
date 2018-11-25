@@ -52,11 +52,14 @@
             android:theme="@style/Theme.NoActionBar" />
         <activity android:name=".activities.SendActivity" />
         <activity android:name=".activities.ReceiveActivity" />
+        <activity
+            android:name=".activities.HomeActivity"
+            android:theme="@style/Theme.NoActionBar" />
+        <activity android:name=".activities.SettingActivity" />
 
-        <activity android:name=".activities.HomeActivity"
-                android:theme="@style/Theme.NoActionBar"/>
+        <service android:name=".Services.BalanceService"></service>
 
-        <activity android:name=".activities.SettingActivity"></activity>
+        <activity android:name=".activities.WalletActivity"></activity>
     </application>
 
 </manifest>

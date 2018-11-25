@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SnowBlossom</string>
+    <string name="title_home">Casa</string>
+    <string name="title_server_settings">Servidor</string>
+    <string name="title_wallet_settings">Billetera</string>
+    <string name="title_language_settings">Idioma</string>
+    <string name="title_about_settings">"Acerca de "</string>
+    <string name="title_balance">Equilibrar</string>
+    <string name="title_address">Dirección</string>
+    <string name="title_amount">Cantidad</string>
+    <string name="title_address_hint">SNOW Dirección</string>
+    <string name="title_amount_hint">SNOW Cantidad</string>
+    <string name="title_send">Enviar</string>
+    <string name="title_send_now">Enviar nieve</string>
+    <string name="title_need_permissions">Necesita permisos</string>
+    <string name="title_permissions_description">Snowblossom necesita permiso para abrir la cámara para leer códigos QR. Puede otorgarlos en la configuración de la aplicación.</string>
+    <string name="title_goto_settings">Ir a la configuración</string>
+    <string name="title_cancel">Cancelar</string>
+    <string name="title_sending_flakes">Enviando Snow Flakes</string>
+    <string name="title_connecting_home">Conectando...</string>
+    <string name="title_connected_home">Conectado</string>
+    <string name="title_camera">Cámara</string>
+    <string name="title_receive">Recibir</string>
+    <string name="title_settings">Ajustes</string>
+    <string name="title_loading_dialog">Por favor espera</string>
+    <string name="title_calculating_spendable">Calculando Spendable</string>
+    <string name="title_copy">Toque para copiar la dirección</string>
+    <string name="title_generate_address">Generar nueva dirección</string>
+    <string name="title_receive_snow">Recibir Snow</string>
+    <string name="title_address_copied">Dirección Copiada</string>
+    <string name="title_retrieving_address">Recuperando dirección</string>
+    <string name="title_import">Importar</string>
+    <string name="title_export">Exportar</string>
+    <string name="title_failed_description_send">No se pudo completar la transacción</string>
+    <string name="title_failed">Ha fallado</string>
+    <string name="title_loading_splash">Cargando ...</string>
+    <string name="title_seconds_ago">Hace segundos</string>
+    <string name="title_minutes_ago">Hace minutos</string>
+    <string name="title_hours_ago">Horas atras</string>
+    <string name="title_months_ago">Hace meses</string>
+    <string name="title_years_ago">Hace años que</string>
+    <string name="title_week_ago">Hace una semana</string>
+    <string name="title_days_ago">Hace días</string>
+    <string name="title_refreshed_now">Actualizado hace 0 segundos</string>
+</resources>

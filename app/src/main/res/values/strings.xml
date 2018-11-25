@@ -1,10 +1,68 @@
 <resources>
     <string name="app_name">SnowBlossom</string>
-    <string name="title_activity_bottom_navigation">BottomNavigationActivity</string>
+    <string name="title_activity_bottom_navigation" translatable="false">BottomNavigationActivity</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_server_settings">Server</string>
+    <string name="title_wallet_settings">Wallet</string>
+    <string name="title_language_settings">Language</string>
+    <string name="title_about_settings">About</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--send screen -->
+    <string name="title_balance">Balance</string>
+    <string name="title_address">Address</string>
+    <string name="title_amount">Amount</string>
+    <string name="title_address_hint">SNOW Address</string>
+    <string name="title_amount_hint">SNOW Amount</string>
+    <string name="title_send">Send</string>
+    <string name="title_send_now">Send Snow</string>
+    <string name="title_need_permissions">Need Permissions</string>
+    <string name="title_permissions_description">Snowblossom needs permission to open camera in order to read QR codes. You can grant them in app settings.</string>
+    <string name="title_goto_settings">GOTO SETTINGS</string>
+    <string name="title_cancel">Cancel</string>
+    <string name="title_sending_flakes">Sending Snow Flakes</string>
+    <string name="title_failed">Failed</string>
+    <string name="title_failed_description_send">Could not complete transaction</string>
+
+    <!--Home Screen-->
+    <string name="title_connecting_home">Connecting...</string>
+    <string name="title_connected_home">Connected</string>
+    <string name="title_camera">Camera</string>
+    <string name="title_receive">Receive</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_loading_dialog">Please Wait</string>
+    <string name="title_calculating_spendable">Calculating Spendable</string>
+
+
+
+    <!--Receive Screen-->
+    <string name="title_copy">Tap to Copy Address</string>
+    <string name="title_generate_address">Generate new address</string>
+    <string name="title_receive_snow">Receive Snow</string>
+    <string name="title_address_copied">Address Copied</string>
+    <string name="title_retrieving_address">Retrieving Address</string>
+
+    <!--Wallet Screen-->
+    <string name="title_import">Import</string>
+    <string name="title_export">Export</string>
+
+
+    <string name="title_loading_splash">Loading ...</string>
+
+
+
+    <string name="title_seconds_ago">Seconds Ago</string>
+    <string name="title_minutes_ago">Minutes Ago</string>
+    <string name="title_hours_ago">Hours Ago</string>
+    <string name="title_months_ago">Months Ago</string>
+    <string name="title_years_ago">Years Ago</string>
+    <string name="title_week_ago">Week Ago</string>
+    <string name="title_days_ago">Days Ago</string>
+    <string name="title_refreshed_now">Refreshed 0 seconds ago</string>
+
+
+
+
+
+
+
 </resources>

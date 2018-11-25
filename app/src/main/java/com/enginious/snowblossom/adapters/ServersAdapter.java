@@ -64,7 +64,7 @@ public class ServersAdapter extends  RecyclerView.Adapter<ServersAdapter.MyViewH
             Server server = serverList.get(position);
             holder.txtServer.setText(server.getUrl());
             if(server.getConnected()){
-                holder.txtConnected.setText("Connected");
+                holder.txtConnected.setText(context.getString(R.string.title_connected_home));
             }else{
                 holder.txtConnected.setText("");
             }

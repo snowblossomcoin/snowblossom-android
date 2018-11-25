@@ -20,16 +20,20 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
     LinearLayout serverLayout;
     @BindView(R.id.linear_layout_language_activity)
     LinearLayout languageLayout;
+    @BindView(R.id.linear_layout_wallet_activity)
+    LinearLayout walletLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Settings");
+        getSupportActionBar().setTitle(getString(R.string.title_settings));
         ButterKnife.bind(this);
         serverLayout.setOnClickListener(this);
         languageLayout.setOnClickListener(this);
+        walletLayout.setOnClickListener(this);
+
     }
 
     @Override
@@ -52,6 +56,9 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
             Intent intent = new Intent(this,LanguagesActivity.class);
             startActivity(intent);
 
+        }else if(view.getId() == R.id.linear_layout_wallet_activity){
+            Intent intent = new Intent(this,WalletActivity.class);
+            startActivity(intent);
         }
 
     }

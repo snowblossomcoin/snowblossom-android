@@ -31,6 +31,7 @@
                 android:layout_marginRight="10dp"
                 />
             <TextView
+                android:id="@+id/txt_snow_activty_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="SNOW"
@@ -40,6 +41,15 @@
 
         </LinearLayout>
         <TextView
+            android:id="@+id/btn_refresh_home_activity"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_refreshed_now"
+            android:textColor="@color/colorPrimary"
+            android:textSize="11sp"
+            />
+        <TextView
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -48,17 +58,7 @@
             android:textColor="@color/colorPrimary"
             />
 
-        <Button
-            android:id="@+id/btn_refresh_home_activity"
-            android:layout_marginTop="10dp"
-            android:layout_width="100dp"
-            android:layout_height="30dp"
-            android:text="Refresh"
-            android:textColor="@color/colorPrimary"
-            android:textAllCaps="false"
-            android:textSize="11sp"
-            android:background="@drawable/snowbutton_white"
-            />
+
 
     </LinearLayout>
     <LinearLayout
@@ -77,7 +77,7 @@
             android:layout_height="60dp"
             android:background="@drawable/snowbutton_purple"
             android:fontFamily="@font/pt_sans"
-            android:text="Camera"
+            android:text="@string/title_camera"
             android:textAllCaps="false"
             android:textColor="@color/colorAccent" />
     </LinearLayout>
@@ -96,7 +96,7 @@
             android:drawablePadding="-30dp"
             android:drawableTint="@color/colorAccent"
             android:drawableLeft="@drawable/received_drawable"
-            android:text="Receive"
+            android:text="@string/title_receive"
             android:textAllCaps="false"
             android:textColor="@color/colorAccent" />
     </LinearLayout>
@@ -115,7 +115,7 @@
             android:drawableTint="@color/colorAccent"
             android:drawableLeft="@drawable/send_drawable"
             android:fontFamily="@font/pt_sans"
-            android:text="Send"
+            android:text="@string/title_send"
             android:textAllCaps="false"
             android:textColor="@color/colorAccent" />
     </LinearLayout>
@@ -131,7 +131,7 @@
             android:layout_height="60dp"
             android:background="@drawable/snowbutton_purple"
             android:fontFamily="@font/pt_sans"
-            android:text="Settings"
+            android:text="@string/title_settings"
             android:textAllCaps="false"
             android:textColor="@color/colorAccent"
             android:drawablePadding="-30dp"

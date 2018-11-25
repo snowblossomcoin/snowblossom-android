@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -54,18 +55,21 @@ public class SendActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.txt_balance_send_activity)
     TextView txtBalance;
 
+    @BindView(R.id.txt_snow_send_activity)
+    TextView txtSnow;
+
+    SharedPreferences prefs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Send Snow");
+        getSupportActionBar().setTitle(getString(R.string.title_send_now));
 
 
         ButterKnife.bind(this);
-
-
 
         imgSend.setOnClickListener(this);
         btn_send.setOnClickListener(this);
@@ -76,6 +80,14 @@ public class SendActivity extends AppCompatActivity implements View.OnClickListe
         final double spendable_flakes = (double)balance;
         final double spendable = spendable_flakes/(double)1000000;
         txtBalance.setText(""+spendable);
+
+
+        prefs = getSharedPreferences("configs",MODE_PRIVATE);
+        int net = prefs.getInt("net",0);
+
+        if(net!=1){
+            txtSnow.setText("TESTSNOW");
+        }
     }
 
     @Override
@@ -88,17 +100,20 @@ public class SendActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private void showSettingsDialog() {
+
+        //getString(R.string.title_send_now)
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Need Permissions");
-        builder.setMessage("Snowblossom needs permission to open camera in order to read QR codes. You can grant them in app settings.");
-        builder.setPositiveButton("GOTO SETTINGS", new DialogInterface.OnClickListener() {
+        builder.setTitle(getString(R.string.title_need_permissions));
+        builder.setMessage(getString(R.string.title_permissions_description));
+        builder.setPositiveButton(getString(R.string.title_goto_settings), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
                 openSettings();
             }
         });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(getString(R.string.title_cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
@@ -205,8 +220,8 @@ public class SendActivity extends AppCompatActivity implements View.OnClickListe
         if(client!= null){
 
             MaterialDialog.Builder builder =  new MaterialDialog.Builder(this)
-                    .title("Please Wait")
-                    .content("Sending Snow Flakes")
+                    .title(getString(R.string.title_loading_dialog))
+                    .content(getString(R.string.title_sending_flakes))
                     .cancelable(false)
                     .titleColor(ContextCompat.getColor(this, R.color.colorPrimary))
                     .widgetColor(ContextCompat.getColor(this, R.color.PurpleLight))
@@ -226,14 +241,15 @@ public class SendActivity extends AppCompatActivity implements View.OnClickListe
                         calculateBalance();
                     }else{
 
+
                         MaterialDialog.Builder builder2 = new MaterialDialog.Builder(SendActivity.this)
-                                .title("Failed")
-                                .content("Could not complete transaction")
+                                .title(getString(R.string.title_failed))
+                                .content(getString(R.string.title_failed_description_send))
                                 .titleColor(ContextCompat.getColor(SendActivity.this, R.color.colorPrimary))
                                 .widgetColor(ContextCompat.getColor(SendActivity.this, R.color.PurpleLight))
                                 .contentColor(ContextCompat.getColor(SendActivity.this, R.color.lightGray))
                                 .negativeColor(ContextCompat.getColor(SendActivity.this, R.color.colorPrimary))
-                                .negativeText("Cancel");
+                                .negativeText(getString(R.string.title_cancel));
                         builder2.build().show();
                     }
 
@@ -245,8 +261,8 @@ public class SendActivity extends AppCompatActivity implements View.OnClickListe
     @SuppressLint("StaticFieldLeak")
     public void calculateBalance(){
         MaterialDialog.Builder builder =  new MaterialDialog.Builder(this)
-                .title("Please Wait")
-                .content("Calculating Spendable")
+                .title(getString(R.string.title_loading_dialog))
+                .content(getString(R.string.title_calculating_spendable))
                 .cancelable(false)
                 .titleColor(ContextCompat.getColor(this, R.color.colorPrimary))
                 .widgetColor(ContextCompat.getColor(this, R.color.PurpleLight))

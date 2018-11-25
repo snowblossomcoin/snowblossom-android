@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/pt_sans"
-                android:text="Tap to Copy Address"
+                android:text="@string/title_copy"
                 android:textColor="@color/Blue"
                 android:textSize="15sp" />
 
@@ -78,7 +78,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/snowbutton_purple"
                     android:fontFamily="@font/pt_sans"
-                    android:text="Generate new address"
+                    android:text="@string/title_generate_address"
                     android:textAllCaps="false"
                     android:textColor="@color/colorAccent" />
             </LinearLayout>

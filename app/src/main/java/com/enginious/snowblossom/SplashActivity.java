@@ -3,15 +3,19 @@ package com.enginious.snowblossom;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.enginious.snowblossom.activities.HomeActivity;
 
+import java.util.Locale;
 import java.util.TreeMap;
 
 import snowblossom.client.SnowBlossomClient;
@@ -30,6 +34,17 @@ public class SplashActivity extends AppCompatActivity {
         prefs = getSharedPreferences("configs",MODE_PRIVATE);
 
         Boolean is_config = prefs.getBoolean("config", false);
+
+
+
+        String lang = prefs.getString("locale","en");
+        Locale myLocale = new Locale(lang);
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.locale = myLocale;
+        res.updateConfiguration(conf, dm);
+
 
 
         if(is_config){

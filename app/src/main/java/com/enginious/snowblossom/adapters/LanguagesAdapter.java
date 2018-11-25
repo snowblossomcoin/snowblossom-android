@@ -35,6 +35,8 @@ public class LanguagesAdapter extends  RecyclerView.Adapter<LanguagesAdapter.MyV
             super(view);
             ButterKnife.bind(context,view);
 
+            txtLanguage = (TextView)view.findViewById(R.id.txt_language_language_row);
+
 //            title = (TextView) view.findViewById(R.id.title);
 //            genre = (TextView) view.findViewById(R.id.genre);
 //            year = (TextView) view.findViewById(R.id.year);
@@ -55,15 +57,34 @@ public class LanguagesAdapter extends  RecyclerView.Adapter<LanguagesAdapter.MyV
     }
 
     @Override
-    public void onBindViewHolder(LanguagesAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(LanguagesAdapter.MyViewHolder holder,final int position) {
 //        Movie movie = moviesList.get(position);
 //        holder.title.setText(movie.getTitle());
 //        holder.genre.setText(movie.getGenre());
 //        holder.year.setText(movie.getYear());
+
+        holder.txtLanguage.setText(languageList.get(position));
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mOnItemClickListener.setOnItemClickListener(v, position);
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return languageList.size();
+    }
+
+    private OnItemClickListener mOnItemClickListener;
+
+    public interface OnItemClickListener {
+        void setOnItemClickListener(View view, int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.mOnItemClickListener = onItemClickListener;
     }
 }

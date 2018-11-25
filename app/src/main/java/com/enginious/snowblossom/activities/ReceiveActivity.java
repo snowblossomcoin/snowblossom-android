@@ -53,7 +53,7 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_receive);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Receive Snow");
+        getSupportActionBar().setTitle(getString(R.string.title_receive_snow));
 
         ButterKnife.bind(this);
 
@@ -94,7 +94,7 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
             ClipData clip = ClipData.newPlainText("address",address_global);
             clipboard.setPrimaryClip(clip);
 
-            Toast.makeText(this,"Address Copied",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,R.string.title_address_copied,Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -117,8 +117,8 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
 
         if(clt != null) {
             MaterialDialog.Builder builder = new MaterialDialog.Builder(this)
-                    .title("Please Wait")
-                    .content("Retreiving Address")
+                    .title(getString(R.string.title_loading_dialog))
+                    .content(getString(R.string.title_retrieving_address))
                     .cancelable(false)
                     .titleColor(ContextCompat.getColor(this, R.color.colorPrimary))
                     .widgetColor(ContextCompat.getColor(this, R.color.PurpleLight))

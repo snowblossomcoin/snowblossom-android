@@ -39,7 +39,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Balance"
+                android:text="@string/title_balance"
                 android:textColor="@color/colorPrimary"
                 android:textSize="18sp"
 
@@ -60,6 +60,7 @@
                     android:layout_marginRight="10dp"
                     />
                 <TextView
+                    android:id="@+id/txt_snow_send_activity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="SNOW"
@@ -91,7 +92,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Address"
+                    android:text="@string/title_address"
                     android:paddingLeft="5dp"
                     android:fontFamily="@font/pt_sans"
                     android:textColor="@color/colorPrimaryDark"
@@ -101,7 +102,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pt_sans"
-                    android:hint="SNOW Address"
+                    android:hint="@string/title_address_hint"
                     android:inputType="textUri"
                     android:text=""
                     android:textSize="18sp"
@@ -121,7 +122,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Amount"
+                    android:text="@string/title_amount"
                     android:paddingLeft="5dp"
                     android:fontFamily="@font/pt_sans"
                     android:textColor="@color/colorPrimaryDark"
@@ -131,7 +132,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pt_sans"
-                    android:hint="SNOW Amount"
+                    android:hint="@string/title_amount_hint"
                     android:inputType="number"
                     android:text=""
                     android:textSize="18sp"
@@ -150,7 +151,7 @@
                 <Button
                     android:layout_width="220dp"
                     android:layout_height="wrap_content"
-                    android:text="Send"
+                    android:text="@string/title_send"
                     android:id="@+id/btn_send_activity"
                     android:textAllCaps="false"
                     android:background="@drawable/snowbutton_purple"
