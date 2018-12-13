@@ -33,7 +33,6 @@
     <string name="title_calculating_spendable">Calculating Spendable</string>
 
 
-
     <!--Receive Screen-->
     <string name="title_copy">Tap to Copy Address</string>
     <string name="title_generate_address">Generate new address</string>
@@ -49,7 +48,6 @@
     <string name="title_loading_splash">Loading ...</string>
 
 
-
     <string name="title_seconds_ago">Seconds Ago</string>
     <string name="title_minutes_ago">Minutes Ago</string>
     <string name="title_hours_ago">Hours Ago</string>
@@ -60,9 +58,19 @@
     <string name="title_refreshed_now">Refreshed 0 seconds ago</string>
 
 
+    <string name="title_opensource_main">Snowblossom is an open source cryptocurrency</string>
+    <string name="title_create_main">Create Wallet</string>
+    <string name="title_import_main">Import Wallet</string>
+    <string name="title_continue">Continue</string>
+
+    <string name="title_connect_server">Connect</string>
+
+    <string name="title_connect_server_hint">Enter Server URL</string>
+    <string name="title_connect_port_hint">Port</string>
 
 
-
+    <string name="title_copy_hash">Tap to Copy Hash</string>
+    <string name="title_hash_copied">Hash Copied</string>
 
 
 </resources>

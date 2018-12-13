@@ -14,6 +14,7 @@ import android.util.DisplayMetrics;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.enginious.snowblossom.activities.HomeActivity;
+import com.enginious.snowblossom.activities.InitLanugageActivity;
 
 import java.util.Locale;
 import java.util.TreeMap;
@@ -45,8 +46,6 @@ public class SplashActivity extends AppCompatActivity {
         conf.locale = myLocale;
         res.updateConfiguration(conf, dm);
 
-
-
         if(is_config){
 
             loadWallet();
@@ -56,7 +55,7 @@ public class SplashActivity extends AppCompatActivity {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    Intent i = new Intent(SplashActivity.this, SelectServerActivity.class);
+                    Intent i = new Intent(SplashActivity.this, InitLanugageActivity.class);
                     startActivity(i);
                     // close this activity
                     finish();

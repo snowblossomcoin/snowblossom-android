@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -47,6 +48,20 @@ public class SelectServerActivity extends AppCompatActivity implements View.OnCl
 
         btnConnect.setOnClickListener(this);
 
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if(i == R.id.radioMain){
+                    etUrl.setText("client-nodes.snowblossom.org");
+                    etPort.setText("2338");
+                }else{
+                    etUrl.setText("node.snowblossom.cluelessperson.com");
+                    etPort.setText("2339");
+                }
+            }
+        });
+        radioGroup.check(R.id.radioMain);
     }
 
 

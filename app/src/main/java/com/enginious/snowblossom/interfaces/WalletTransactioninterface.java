@@ -6,5 +6,5 @@ package com.enginious.snowblossom.interfaces;
 
 public interface WalletTransactioninterface {
 
-    void onTransactioncompleted(Boolean success);
+    void onTransactioncompleted(Boolean success,String hash);
 }

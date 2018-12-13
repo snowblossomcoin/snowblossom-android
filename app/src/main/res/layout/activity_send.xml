@@ -89,20 +89,20 @@
                 android:layout_weight="1"
                 >
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/title_address"
-                    android:paddingLeft="5dp"
-                    android:fontFamily="@font/pt_sans"
-                    android:textColor="@color/colorPrimaryDark"
-                    />
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="@string/title_address"-->
+                    <!--android:paddingLeft="5dp"-->
+                    <!--android:fontFamily="@font/pt_sans"-->
+                    <!--android:textColor="@color/colorPrimaryDark"-->
+                    <!--/>-->
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pt_sans"
-                    android:hint="@string/title_address_hint"
+                    android:hint="@string/title_address"
                     android:inputType="textUri"
                     android:text=""
                     android:textSize="18sp"
@@ -119,21 +119,21 @@
                 android:layout_height="0dp"
                 android:layout_weight="1">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/title_amount"
-                    android:paddingLeft="5dp"
-                    android:fontFamily="@font/pt_sans"
-                    android:textColor="@color/colorPrimaryDark"
-                    />
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="@string/title_amount"-->
+                    <!--android:paddingLeft="5dp"-->
+                    <!--android:fontFamily="@font/pt_sans"-->
+                    <!--android:textColor="@color/colorPrimaryDark"-->
+                    <!--/>-->
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pt_sans"
-                    android:hint="@string/title_amount_hint"
-                    android:inputType="number"
+                    android:hint="@string/title_amount"
+                    android:inputType="numberDecimal"
                     android:text=""
                     android:textSize="18sp"
                     android:id="@+id/et_amount_send_activity"
@@ -154,7 +154,7 @@
                     android:text="@string/title_send"
                     android:id="@+id/btn_send_activity"
                     android:textAllCaps="false"
-                    android:background="@drawable/snowbutton_purple"
+                    android:background="@drawable/snowbutton_red"
                     android:textColor="@color/colorAccent"
                     />
             </LinearLayout>

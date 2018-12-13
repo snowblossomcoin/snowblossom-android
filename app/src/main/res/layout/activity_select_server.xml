@@ -39,7 +39,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Server"
+                    android:text="@string/title_server_settings"
                     android:paddingLeft="5dp"
                     android:fontFamily="@font/pt_sans"
                     android:textColor="@color/colorPrimaryDark"
@@ -51,7 +51,7 @@
                     android:fontFamily="@font/pt_sans"
                     android:hint="Enter Server URL"
                     android:inputType="textUri"
-                    android:text="node.snowblossom.cluelessperson.com"
+                    android:text="client-nodes.snowblossom.org"
                     android:textSize="18sp"
                     android:id="@+id/et_url_server"
                     android:textCursorDrawable="@null"
@@ -105,7 +105,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/colorPrimaryDark"
-
                     android:fontFamily="@font/pt_sans"
                     android:text="Mainnet" />
 
@@ -117,10 +116,7 @@
                     android:fontFamily="@font/pt_sans"
                     android:checked="true"
                     android:text="Testnet" />
-
             </RadioGroup>
-
-
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
@@ -133,7 +129,7 @@
             android:layout_height="50dp"
             android:background="@drawable/snowbutton_purple"
             android:fontFamily="@font/pt_sans"
-            android:text="Continue"
+            android:text="@string/title_continue"
             android:id="@+id/btn_connect_server"
             android:textAllCaps="false"
             android:textColor="@color/colorAccent" />

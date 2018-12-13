@@ -19,7 +19,7 @@ import java.util.TimerTask;
 
 public class BalanceService extends Service {
 
-    public static final int notify = 30000;  //interval between two services(Here Service run every 5 seconds)
+    public static final int notify = 10000;  //interval between two services(Here Service run every 5 seconds)
     int count = 0;  //number of times service is display
     private Timer mTimer = null;
     private Handler mHandler = new Handler();

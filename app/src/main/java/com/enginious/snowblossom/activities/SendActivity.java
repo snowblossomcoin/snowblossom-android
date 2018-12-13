@@ -33,10 +33,15 @@ import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import snowblossom.client.SnowBlossomClient;
 import snowblossom.lib.Globals;
+import snowblossom.proto.Transaction;
+import snowblossom.proto.UserServiceGrpc;
 
 public class SendActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -79,7 +84,10 @@ public class SendActivity extends AppCompatActivity implements View.OnClickListe
         long balance = WalletHelper.balance;
         final double spendable_flakes = (double)balance;
         final double spendable = spendable_flakes/(double)1000000;
-        txtBalance.setText(""+spendable);
+
+        DecimalFormat df = new DecimalFormat("#.######");
+        df.setRoundingMode(RoundingMode.CEILING);
+        txtBalance.setText("" + df.format(spendable));
 
 
         prefs = getSharedPreferences("configs",MODE_PRIVATE);
@@ -157,20 +165,24 @@ public class SendActivity extends AppCompatActivity implements View.OnClickListe
             openCamera();
 
         }else if(view.getId() == R.id.btn_send_activity){
+            String amnt = etAmount.getText().toString();
 
-            if(etAmount.getText().toString().isEmpty() || etAddress.getText().toString().isEmpty()){
+            if(amnt.isEmpty() || etAddress.getText().toString().isEmpty()){
                 return;
             }
-            if(!etAmount.getText().toString().matches("[0-9]+")){
+            if(!amnt.matches("^\\d*\\.\\d+|\\d+\\.\\d*$") && !amnt.matches("(\\d+(?:\\.\\d+)?)")){
+                Log.d("Yes","Yes");
                 return;
-
             }
             try {
                 SnowBlossomClient client = WalletHelper.getClient();
+
                 double val_snow = Double.parseDouble(etAmount.getText().toString());
                 long value = (long) (val_snow * Globals.SNOW_VALUE);
                 String to = etAddress.getText().toString();
-                sendSnow(client,value,to);
+                sendSnow(client,value,to,val_snow);
+
+
 
             }catch (Exception e){
                 e.printStackTrace();
@@ -216,7 +228,7 @@ public class SendActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @SuppressLint("StaticFieldLeak")
-    private void sendSnow(final SnowBlossomClient client , final long val , final String address ){
+    private void sendSnow(final SnowBlossomClient client , final long val , final String address , final Double double_amount ){
         if(client!= null){
 
             MaterialDialog.Builder builder =  new MaterialDialog.Builder(this)
@@ -233,13 +245,14 @@ public class SendActivity extends AppCompatActivity implements View.OnClickListe
 
             WalletHelper.sendSnow(val, address, new WalletTransactioninterface() {
                 @Override
-                public void onTransactioncompleted(Boolean success) {
+                public void onTransactioncompleted(Boolean success,String hash) {
                     dialog.dismiss();
                     if(success){
                         etAddress.setText("");
                         etAmount.setText("");
-                        calculateBalance();
+                        calculateBalance(hash,double_amount);
                     }else{
+
 
 
                         MaterialDialog.Builder builder2 = new MaterialDialog.Builder(SendActivity.this)
@@ -259,7 +272,7 @@ public class SendActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @SuppressLint("StaticFieldLeak")
-    public void calculateBalance(){
+    public void calculateBalance(final String hash, final Double double_amount){
         MaterialDialog.Builder builder =  new MaterialDialog.Builder(this)
                 .title(getString(R.string.title_loading_dialog))
                 .content(getString(R.string.title_calculating_spendable))
@@ -274,11 +287,24 @@ public class SendActivity extends AppCompatActivity implements View.OnClickListe
         WalletHelper.calculateBalance(new WalletBalanceInterface() {
             @Override
             public void balanceRetrieved(long balance) {
+
                 final double spendable_flakes = (double)balance;
                 final double spendable = spendable_flakes/(double)1000000;
                 WalletHelper.balance = balance;
                 dialog.dismiss();
-                txtBalance.setText(""+spendable);
+                DecimalFormat df = new DecimalFormat("#.######");
+                df.setRoundingMode(RoundingMode.CEILING);
+                txtBalance.setText(""+df.format(spendable));
+
+
+                DecimalFormat df_n = new DecimalFormat("#.######");
+                df_n.setRoundingMode(RoundingMode.CEILING);
+
+
+                Intent intent = new Intent(SendActivity.this,TransactionDetailActivity.class);
+                intent.putExtra("hash",hash);
+                intent.putExtra("amount",""+df_n.format(double_amount));
+                SendActivity.this.startActivity(intent);
             }
         });
     }

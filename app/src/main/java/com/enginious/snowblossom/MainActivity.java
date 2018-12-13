@@ -33,6 +33,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.Reader;
+import java.util.Date;
 import java.util.TreeMap;
 
 import butterknife.BindView;
@@ -110,7 +111,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             ContextWrapper contextWrapper = new ContextWrapper(getApplicationContext());
             File internal_file =  contextWrapper.getDir(getFilesDir().getName(), Context.MODE_PRIVATE);
 
-            File wallet_path = new File(internal_file, "wallet_db_testnet");
+            String filename_db = "wallet_db_"+System.currentTimeMillis();
+            File wallet_path = new File(internal_file, filename_db);
 
             String path = wallet_path.getAbsolutePath();
 
@@ -262,7 +264,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 ContextWrapper contextWrapper = new ContextWrapper(getApplicationContext());
                                 File internal_file =  contextWrapper.getDir(getFilesDir().getName(), Context.MODE_PRIVATE);
 
-                                File wallet_path = new File(internal_file, "wallet_db_testnet");
+                                String filename_db = "wallet_db_"+ System.currentTimeMillis();
+                                File wallet_path = new File(internal_file, filename_db);
 
                                 String path = wallet_path.getAbsolutePath();
 

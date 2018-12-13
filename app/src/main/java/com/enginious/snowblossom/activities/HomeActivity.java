@@ -22,6 +22,8 @@ import com.enginious.snowblossom.TimeAgo;
 import com.enginious.snowblossom.WalletHelper;
 import com.enginious.snowblossom.interfaces.WalletBalanceInterface;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -35,8 +37,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     public static final String mBroadcastBalanceAction = "com.enginious.snowblossom.balance";
 
 
-    @BindView(R.id.btn_camera_home_activity)
-    Button btn_camera;
+//    @BindView(R.id.btn_camera_home_activity)
+//    Button btn_camera;
 
     @BindView(R.id.btn_receive_home_activity)
     Button btn_receive;
@@ -79,7 +81,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
 
         //adding listeners to all four buttons
-        btn_camera.setOnClickListener(this);
+//        btn_camera.setOnClickListener(this);
         btn_receive.setOnClickListener(this);
         btn_send.setOnClickListener(this);
         btn_settings.setOnClickListener(this);
@@ -94,10 +96,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         mTimer = new Timer();
 
-
-
-
-
     }
 
     @Override
@@ -107,7 +105,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         long balance = WalletHelper.balance;
         final double spendable_flakes = (double)balance;
         final double spendable = spendable_flakes/(double)1000000;
-        txt_balance.setText(""+spendable);
+        DecimalFormat df = new DecimalFormat("#.######");
+        df.setRoundingMode(RoundingMode.CEILING);
+        txt_balance.setText("" + df.format(spendable));
+
         registerReceiver(mReceiver, mIntentFilter);
 
     }
@@ -128,9 +129,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                intent = new Intent(this,ReceiveActivity.class);
 
                break;
-           case R.id.btn_camera_home_activity:
-
-               break;
+//           case R.id.btn_camera_home_activity:
+//
+//               break;
            case R.id.btn_send_home_activity:
                intent = new Intent(this,SendActivity.class);
                break;
@@ -187,7 +188,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 final double spendable = spendable_flakes/(double)1000000;
                 WalletHelper.balance = balance;
                 //Updates the UI
-                txt_balance.setText("" + spendable);
+
+                DecimalFormat df = new DecimalFormat("#.######");
+                df.setRoundingMode(RoundingMode.CEILING);
+                txt_balance.setText("" + df.format(spendable));
 
 
                 int net = prefs.getInt("net",0);
@@ -206,7 +210,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 btn_refresh.setText(time);
 
 
-                mTimer.scheduleAtFixedRate(new HomeActivity.TimeDisplay(), 0, 10000);
+                mTimer.scheduleAtFixedRate(new HomeActivity.TimeDisplay(), 0, 1000);
 
 
 
@@ -257,13 +261,16 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         public void onReceive(Context context, Intent intent) {
             //String str = intent.getStringArrayListExtra("Data").toString();
             double spendable = intent.getDoubleExtra("Data",0.0);
-            txt_balance.setText("" + spendable);
+
+
+            DecimalFormat df = new DecimalFormat("#.######");
+            df.setRoundingMode(RoundingMode.CEILING);
+            txt_balance.setText("" + df.format(spendable));
 
             refreshDate = new Date();
             String time = TimeAgo.covertTimeToText(refreshDate,HomeActivity.this);
 
             btn_refresh.setText(time);
-
 
             Log.d("Service says","hello world");
         }

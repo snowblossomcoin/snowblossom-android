@@ -57,9 +57,16 @@
             android:theme="@style/Theme.NoActionBar" />
         <activity android:name=".activities.SettingActivity" />
 
-        <service android:name=".Services.BalanceService"></service>
+        <service android:name=".Services.BalanceService" />
 
-        <activity android:name=".activities.WalletActivity"></activity>
+        <activity android:name=".activities.WalletActivity" />
+        <activity android:name=".activities.AboutActivity" />
+        <activity
+            android:name=".activities.InitLanugageActivity"
+            android:configChanges="locale|orientation"
+            android:theme="@style/Theme.NoActionBar" />
+        <activity android:name=".activities.TransactionDetailActivity"
+            android:theme="@style/Theme.NoActionBar"></activity>
     </application>
 
 </manifest>

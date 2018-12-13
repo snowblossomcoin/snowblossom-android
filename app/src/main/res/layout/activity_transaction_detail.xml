@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/colorAccent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="com.enginious.snowblossom.activities.TransactionDetailActivity">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/activity_hash_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:foregroundTint="@color/colorAccent"
+        android:elevation="4dp"
+        android:theme="@style/AppTheme.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+        <ImageView
+            android:layout_width="30dp"
+            android:contentDescription=""
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:src="@drawable/leafless_tree"/>
+    </android.support.v7.widget.Toolbar>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="1.5"
+            android:gravity="center_vertical|center_horizontal"
+            >
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/pt_sans"
+                android:text="@string/title_copy_hash"
+                android:textColor="@color/Blue"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/qr_img_hash"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/main_logo" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                >
+                <TextView
+                    android:id="@+id/txt_hash_amount_activity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/pt_sans_bold"
+                    android:text="Amount : "
+                    android:textColor="@color/Blue"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/txt_hash_activity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/pt_sans_bold"
+                    android:text="Hash:......."
+                    android:textColor="@color/Blue"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

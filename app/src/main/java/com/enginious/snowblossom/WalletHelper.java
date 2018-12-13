@@ -8,6 +8,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.enginious.snowblossom.activities.SendActivity;
 import com.enginious.snowblossom.interfaces.WalletBalanceInterface;
 import com.enginious.snowblossom.interfaces.WalletTransactioninterface;
+import com.google.protobuf.ByteString;
 
 import java.util.TreeMap;
 
@@ -16,6 +17,7 @@ import snowblossom.client.SnowBlossomClient;
 import snowblossom.client.TransactionFactory;
 import snowblossom.lib.AddressSpecHash;
 import snowblossom.lib.AddressUtil;
+import snowblossom.lib.ChainHash;
 import snowblossom.lib.TransactionUtil;
 import snowblossom.proto.SubmitReply;
 import snowblossom.proto.Transaction;
@@ -80,9 +82,9 @@ public class WalletHelper {
     @SuppressLint("StaticFieldLeak")
     public static void sendSnow(final long value , final String address , final WalletTransactioninterface transactioninterface){
         if(client!= null){
-            new AsyncTask<Void, Void, Boolean>() {
+            new AsyncTask<Void, Void, String>() {
                 @Override
-                protected Boolean doInBackground(Void... voids) {
+                protected String doInBackground(Void... voids) {
                     try {
                         TransactionFactoryConfig.Builder tx_config = TransactionFactoryConfig.newBuilder();
                         tx_config.setSign(true);
@@ -98,22 +100,36 @@ public class WalletHelper {
                         //                ManagedChannel channel = ManagedChannelBuilder.forAddress("node.snowblossom.cluelessperson.com", 2339).usePlaintext(true).build();
                         //                UserServiceGrpc.UserServiceBlockingStub blockingStub;
                         //                blockingStub = UserServiceGrpc.newBlockingStub(channel);
+
                         SubmitReply str = client.getStub().submitTransaction(tx);
+
                         if(str != null) {
-                            return str.getSuccess();
+                            ChainHash tx_hash = new ChainHash(tx.getTxHash());
+                            String hash_str = "" + tx_hash.toString();
+
+                            return hash_str;
+
                         }else{
-                            return false;
+
+                            return null;
+
                         }
                     }catch (Exception e){
                         e.printStackTrace();
-                        return  false;
+
+                        return  null;
                     }
                 }
 
                 @Override
-                protected void onPostExecute(Boolean s) {
-                    super.onPostExecute(s);
-                    transactioninterface.onTransactioncompleted(s);
+                protected void onPostExecute(String hash) {
+                    super.onPostExecute(hash);
+                    if(hash != null){
+                        transactioninterface.onTransactioncompleted(true,hash);
+                    }else{
+                        transactioninterface.onTransactioncompleted(false,"");
+                    }
+
                 }
             }.execute();
 

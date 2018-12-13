@@ -148,7 +148,7 @@ public class WalletActivity extends AppCompatActivity {
         try {
             long time= System.currentTimeMillis();
 
-            String directory = getExternalFilesDir(Environment.getDataDirectory().getAbsolutePath()).getAbsolutePath() + time + ".txt";
+            String directory = getExternalFilesDir(Environment.getDataDirectory().getAbsolutePath()).getAbsolutePath() + time + ".json";
 
             JsonFormat.Printer printer = JsonFormat.printer();
             AtomicFileOutputStream atomic_out = new AtomicFileOutputStream(directory);

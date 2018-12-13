@@ -43,4 +43,13 @@
     <string name="title_week_ago">Hace una semana</string>
     <string name="title_days_ago">Hace días</string>
     <string name="title_refreshed_now">Actualizado hace 0 segundos</string>
+    <string name="title_opensource_main">Snowblossom es una criptomoneda de código abierto.</string>
+    <string name="title_create_main">Crear Billetera</string>
+    <string name="title_import_main">Billetera importacion</string>
+    <string name="title_continue">Continuar</string>
+    <string name="title_connect_port_hint">Port</string>
+    <string name="title_connect_server_hint">Introduzca la URL del servidor</string>
+    <string name="title_connect_server">Conectar</string>
+    <string name="title_copy_hash">Toque para copiar hash</string>
+    <string name="title_hash_copied">Hash copiado</string>
 </resources>
