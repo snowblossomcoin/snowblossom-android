@@ -25,6 +25,9 @@ android {
     }
     productFlavors {
     }
+    lintOptions {
+        abortOnError false
+    }
 }
 configurations {
     all*.exclude group: 'org.apache.commons'
