@@ -74,6 +74,17 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        prefs = getSharedPreferences("configs",MODE_PRIVATE);
+
+        int net = prefs.getInt("net",0);
+
+        if(net != 1) {
+
+            setTheme(R.style.AppThemeTest);
+        }
+
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
 
@@ -171,7 +182,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         MaterialDialog.Builder builder =  new MaterialDialog.Builder(HomeActivity.this)
                 .title(getString(R.string.title_loading_dialog))
-                .content(getString(R.string.title_calculating_spendable))
+                .content(getString(R.string.title_connecting_node))
                 .cancelable(false)
                 .titleColor(ContextCompat.getColor(HomeActivity.this, R.color.colorPrimary))
                 .widgetColor(ContextCompat.getColor(HomeActivity.this, R.color.PurpleLight))
@@ -209,11 +220,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
                 btn_refresh.setText(time);
 
-
                 mTimer.scheduleAtFixedRate(new HomeActivity.TimeDisplay(), 0, 1000);
-
-
-
 
                 Intent serviceIntent = new Intent(HomeActivity.this, BalanceService.class);
                 startService(serviceIntent);
@@ -225,7 +232,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         MaterialDialog.Builder builder =  new MaterialDialog.Builder(HomeActivity.this)
                 .title(getString(R.string.title_loading_dialog))
-                .content(getString(R.string.title_calculating_spendable))
+                .content(getString(R.string.title_connecting_node))
                 .cancelable(false)
                 .titleColor(ContextCompat.getColor(HomeActivity.this, R.color.colorPrimary))
                 .widgetColor(ContextCompat.getColor(HomeActivity.this, R.color.PurpleLight))

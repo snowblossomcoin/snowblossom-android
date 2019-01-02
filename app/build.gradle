@@ -17,6 +17,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
     packagingOptions {
         exclude 'org/apache/commons/codec/language/bm/*'
         exclude 'org/apache/commons/codec/language/bm/gen_rules_dutch.txt'
@@ -30,6 +34,9 @@ configurations {
     all*.exclude group: 'org.apache.commons'
 }
 dependencies {
+    configurations {
+        all*.exclude group: 'com.android.support', module: 'support-v13'
+    }
     implementation files('libs/SnowBlossomClient_and.jar')
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:28.0.0-rc01'

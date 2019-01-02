@@ -7,22 +7,7 @@
     android:orientation="vertical"
     tools:context="com.enginious.snowblossom.ServersActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/activity_servers_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:foregroundTint="@color/colorAccent"
-        android:elevation="4dp"
-        android:theme="@style/AppTheme.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
-        <ImageView
-            android:layout_width="30dp"
-            android:contentDescription=""
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:src="@drawable/leafless_tree"/>
-    </android.support.v7.widget.Toolbar>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"

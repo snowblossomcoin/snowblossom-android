@@ -62,10 +62,22 @@ public class WalletActivity extends AppCompatActivity {
     private static final int MY_PERMISSIONS_REQUEST_WRITE = 110;
 
 
+    SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        prefs = getSharedPreferences("configs",MODE_PRIVATE);
+
+        int net = prefs.getInt("net",0);
+
+        if(net == 2) {
+
+            setTheme(R.style.AppThemeTest);
+        }
+
+
         setContentView(R.layout.activity_wallet);
         ButterKnife.bind(this);
 

@@ -15,7 +15,7 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:gravity="center_vertical|right"
-            android:background="@color/purpleLighter"
+
             android:padding="10dp"
             android:layout_height="50dp">
             <ImageView
@@ -28,53 +28,52 @@
 
         </LinearLayout>
 
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:orientation="vertical"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@color/purpleLighter"-->
+            <!--android:gravity="center_horizontal|center_vertical"-->
+            <!--&gt;-->
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/title_balance"-->
+                <!--android:textColor="@color/colorPrimary"-->
+                <!--android:textSize="18sp"-->
+                <!--android:layout_marginBottom="10dp"-->
+                <!--/>-->
+            <!--<LinearLayout-->
+                <!--android:orientation="horizontal"-->
+                <!--android:gravity="center_horizontal"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="...."-->
+                    <!--android:id="@+id/txt_balance_send_activity"-->
+                    <!--android:textColor="@color/colorPrimary"-->
+                    <!--android:textSize="32sp"-->
+                    <!--android:layout_marginRight="10dp"-->
+                    <!--/>-->
+                <!--<TextView-->
+                    <!--android:id="@+id/txt_snow_send_activity"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="SNOW"-->
+                    <!--android:textColor="@color/colorPrimary"-->
+                    <!--android:textSize="13sp"-->
+                    <!--/>-->
+
+            <!--</LinearLayout>-->
+        <!--</LinearLayout>-->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:background="@color/purpleLighter"
             android:gravity="center_horizontal|center_vertical"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/title_balance"
-                android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
-
-                android:layout_marginBottom="10dp"
-                />
-            <LinearLayout
-                android:orientation="horizontal"
-                android:gravity="center_horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="...."
-                    android:id="@+id/txt_balance_send_activity"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="32sp"
-                    android:layout_marginRight="10dp"
-                    />
-                <TextView
-                    android:id="@+id/txt_snow_send_activity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="SNOW"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="13sp"
-                    />
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:gravity="center_horizontal"
             android:orientation="vertical"
             android:layout_weight="2"
 
@@ -85,8 +84,8 @@
                 android:orientation="vertical"
                 android:padding="20dp"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="100dp"
+
                 >
 
                 <!--<TextView-->
@@ -105,7 +104,7 @@
                     android:hint="@string/title_address"
                     android:inputType="textUri"
                     android:text=""
-                    android:textSize="18sp"
+                    android:textSize="15sp"
                     android:id="@+id/et_address_send_activity"
                     android:textCursorDrawable="@null"
                     android:backgroundTint="@color/colorPrimaryDark"
@@ -116,8 +115,8 @@
                 android:orientation="vertical"
                 android:padding="20dp"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
+                android:layout_height="100dp"
+               >
 
                 <!--<TextView-->
                     <!--android:layout_width="wrap_content"-->
@@ -141,24 +140,25 @@
                     android:backgroundTint="@color/colorPrimaryDark"
                     />
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:orientation="vertical"
-                android:gravity="center_horizontal|center_vertical"
-                android:layout_weight="0.8">
 
-                <Button
-                    android:layout_width="220dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/title_send"
-                    android:id="@+id/btn_send_activity"
-                    android:textAllCaps="false"
-                    android:background="@drawable/snowbutton_red"
-                    android:textColor="@color/colorAccent"
-                    />
-            </LinearLayout>
 
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_weight="0.8">
+
+            <Button
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:text="@string/title_send"
+                android:id="@+id/btn_send_activity"
+                android:textAllCaps="false"
+                android:background="@drawable/snowbutton_red"
+                android:textColor="@color/colorAccent"
+                />
         </LinearLayout>
 
     </LinearLayout>

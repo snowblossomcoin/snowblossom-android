@@ -7,31 +7,48 @@
     android:orientation="vertical"
     tools:context="com.enginious.snowblossom.LanguagesActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/activity_languages_toolbar"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:foregroundTint="@color/colorAccent"
-        android:elevation="4dp"
-        android:theme="@style/AppTheme.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
-        <ImageView
-            android:layout_width="30dp"
-            android:contentDescription=""
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:src="@drawable/leafless_tree"/>
-    </android.support.v7.widget.Toolbar>
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="vertical"
+        android:gravity="center_vertical|center_horizontal"
+        >
+
+        <Button
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/snowbutton_red"
+            android:fontFamily="@font/pt_sans"
+            android:text="English"
+            android:textAllCaps="false"
+            android:id="@+id/btn_english_language_settings"
+            android:textColor="@color/colorAccent" />
+
+        <Button
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/snowbutton_green"
+            android:fontFamily="@font/pt_sans"
+            android:text="Spanish"
+            android:textAllCaps="false"
+            android:id="@+id/btn_spanish_language_settings"
+            android:textColor="@color/colorAccent" />
 
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_activity_languages"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
+    </LinearLayout>
+
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:id="@+id/recycler_activity_languages"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
 
 
 
-    </android.support.v7.widget.RecyclerView>
+    <!--</android.support.v7.widget.RecyclerView>-->
 
 </LinearLayout>

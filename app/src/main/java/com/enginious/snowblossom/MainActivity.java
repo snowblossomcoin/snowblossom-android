@@ -23,6 +23,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.enginious.snowblossom.activities.HomeActivity;
+import com.enginious.snowblossom.activities.InitLanugageActivity;
 import com.google.protobuf.util.JsonFormat;
 
 import java.io.File;
@@ -78,72 +79,77 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        Boolean is_config = getIntent().getBooleanExtra("config",false);
 
-        if(is_config){
-
-            String url = getIntent().getStringExtra("url");
-            String port = getIntent().getStringExtra("port");
-
-            url = url.trim();
-            url = url.replace(" ", "");
-
-            port = port.trim();
-            port = port.replace(" ", "");
-            if (url.isEmpty() || port.isEmpty()) {
-
-                return;
-            }
-
-            int net = getIntent().getIntExtra("net",0);
+        Intent i = new Intent(MainActivity.this, SelectServerActivity.class);
+        //i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        i.putExtra("import",false);
+        this.startActivity(i);
 
 
-            Globals.addCryptoProviderAndroid();
-            TreeMap<String, String> configs = new TreeMap<>();
-            configs.put("node_host", url);
-            configs.put("node_port", port);
-            if (net == 1) {
-                configs.put("network", "mainnet");
-            } else {
-                configs.put("network", "testnet");
-            }
-
-            ContextWrapper contextWrapper = new ContextWrapper(getApplicationContext());
-            File internal_file =  contextWrapper.getDir(getFilesDir().getName(), Context.MODE_PRIVATE);
-
-            String filename_db = "wallet_db_"+System.currentTimeMillis();
-            File wallet_path = new File(internal_file, filename_db);
-
-            String path = wallet_path.getAbsolutePath();
-
-            prefs.edit().putString("wallet_path",path).apply();
-
-            configs.put("wallet_path", wallet_path.getAbsolutePath());
-
-            try {
-                SnowBlossomClient client = WalletHelper.InitClient(configs);
-                // moving to bottom navigation
-
-
-                SharedPreferences.Editor editor = prefs.edit();
-                editor.putInt("net", net);
-                editor.putBoolean("config",true);
-                editor.putString("url", url);
-                editor.putString("port", port);
-                editor.apply();
-
-                Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
-                // set the new task and clear flags
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
-                finish();
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-
-        }
+//        Boolean is_config = getIntent().getBooleanExtra("config",false);
+//
+//        if(is_config){
+//
+//            String url = getIntent().getStringExtra("url");
+//            String port = getIntent().getStringExtra("port");
+//
+//            url = url.trim();
+//            url = url.replace(" ", "");
+//
+//            port = port.trim();
+//            port = port.replace(" ", "");
+//            if (url.isEmpty() || port.isEmpty()) {
+//
+//                return;
+//            }
+//
+//            int net = getIntent().getIntExtra("net",0);
+//
+//
+//            Globals.addCryptoProviderAndroid();
+//            TreeMap<String, String> configs = new TreeMap<>();
+//            configs.put("node_host", url);
+//            configs.put("node_port", port);
+//            if (net == 1) {
+//                configs.put("network", "mainnet");
+//            } else {
+//                configs.put("network", "testnet");
+//            }
+//
+//            ContextWrapper contextWrapper = new ContextWrapper(getApplicationContext());
+//            File internal_file =  contextWrapper.getDir(getFilesDir().getName(), Context.MODE_PRIVATE);
+//
+//            String filename_db = "wallet_db_"+System.currentTimeMillis();
+//            File wallet_path = new File(internal_file, filename_db);
+//
+//            String path = wallet_path.getAbsolutePath();
+//
+//            prefs.edit().putString("wallet_path",path).apply();
+//
+//            configs.put("wallet_path", wallet_path.getAbsolutePath());
+//
+//            try {
+//                SnowBlossomClient client = WalletHelper.InitClient(configs);
+//                // moving to bottom navigation
+//
+//
+//                SharedPreferences.Editor editor = prefs.edit();
+//                editor.putInt("net", net);
+//                editor.putBoolean("config",true);
+//                editor.putString("url", url);
+//                editor.putString("port", port);
+//                editor.apply();
+//
+//                Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+//                // set the new task and clear flags
+//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                startActivity(intent);
+//                finish();
+//
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        }
     }
     public void importWallet(){
 
@@ -190,10 +196,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onActivityResult(int requestCode, int resultCode,
                                  Intent resultData) {
 
-        // The ACTION_OPEN_DOCUMENT intent was sent with the request code
-        // READ_REQUEST_CODE. If the request code seen here doesn't match, it's the
-        // response to some other intent, and the code below shouldn't run at all.
-
         if (requestCode == READ_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             // The document selected by the user won't be returned in the intent.
             // Instead, a URI to that document will be contained in the return intent
@@ -233,98 +235,87 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             //creating wallet
                             Boolean is_config = getIntent().getBooleanExtra("config",false);
 
-                            if(is_config){
+                            Intent i = new Intent(MainActivity.this, SelectServerActivity.class);
+                            //i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            i.putExtra("import",true);
+                            i.putExtra("file",txt_file);
+                            this.startActivity(i);
 
-                                String url = getIntent().getStringExtra("url");
-                                String port = getIntent().getStringExtra("port");
+//                            if(is_config){
 
-                                url = url.trim();
-                                url = url.replace(" ", "");
+//                                String url = getIntent().getStringExtra("url");
+//                                String port = getIntent().getStringExtra("port");
+//
+//                                url = url.trim();
+//                                url = url.replace(" ", "");
+//
+//                                port = port.trim();
+//                                port = port.replace(" ", "");
+//                                if (url.isEmpty() || port.isEmpty()) {
+//
+//                                    return;
+//                                }
+//
+//                                int net = getIntent().getIntExtra("net",0);
+//
+//                                Globals.addCryptoProviderAndroid();
+//                                TreeMap<String, String> configs = new TreeMap<>();
+//                                configs.put("node_host", url);
+//                                configs.put("node_port", port);
+//                                if (net == 1) {
+//                                    configs.put("network", "mainnet");
+//                                } else {
+//                                    configs.put("network", "testnet");
+//                                }
+//
+//                                ContextWrapper contextWrapper = new ContextWrapper(getApplicationContext());
+//                                File internal_file =  contextWrapper.getDir(getFilesDir().getName(), Context.MODE_PRIVATE);
+//
+//                                String filename_db = "wallet_db_"+ System.currentTimeMillis();
+//                                File wallet_path = new File(internal_file, filename_db);
+//
+//                                String path = wallet_path.getAbsolutePath();
+//
+//                                prefs.edit().putString("wallet_path",path).apply();
 
-                                port = port.trim();
-                                port = port.replace(" ", "");
-                                if (url.isEmpty() || port.isEmpty()) {
+//                                configs.put("wallet_path", wallet_path.getAbsolutePath());
+//
+//                                try {
+//
+//                                    SnowBlossomClient client = WalletHelper.InitClient(configs);
+//                                    // Parsing txt file
+//
+//
+//                                    JsonFormat.Parser parser = JsonFormat.parser();
+//                                    WalletDatabase.Builder wallet_import = WalletDatabase.newBuilder();
+//                                    Reader input = new InputStreamReader(new FileInputStream(txt_file));
+//                                    parser.merge(input, wallet_import);
+//
+//                                    WalletUtil.testWallet( wallet_import.build() );
+//                                    client.getPurse().mergeIn(wallet_import.build());
+//
+//                                    client.printBasicStats(wallet_import.build());
+//
+//                                    SharedPreferences.Editor editor = prefs.edit();
+//                                    editor.putInt("net", net);
+//                                    editor.putBoolean("config",true);
+//                                    editor.putString("url", url);
+//                                    editor.putString("port", port);
+//                                    editor.apply();
+//
+//                                    Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+//                                    // set the new task and clear flags
+//                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                                    startActivity(intent);
+//                                    finish();
+//
+//                                }catch (Exception e){
+//                                    e.printStackTrace();
+//                                }
 
-                                    return;
-                                }
-
-                                int net = getIntent().getIntExtra("net",0);
-
-
-                                Globals.addCryptoProviderAndroid();
-                                TreeMap<String, String> configs = new TreeMap<>();
-                                configs.put("node_host", url);
-                                configs.put("node_port", port);
-                                if (net == 1) {
-                                    configs.put("network", "mainnet");
-                                } else {
-                                    configs.put("network", "testnet");
-                                }
-
-                                ContextWrapper contextWrapper = new ContextWrapper(getApplicationContext());
-                                File internal_file =  contextWrapper.getDir(getFilesDir().getName(), Context.MODE_PRIVATE);
-
-                                String filename_db = "wallet_db_"+ System.currentTimeMillis();
-                                File wallet_path = new File(internal_file, filename_db);
-
-                                String path = wallet_path.getAbsolutePath();
-
-                                prefs.edit().putString("wallet_path",path).apply();
-
-                                configs.put("wallet_path", wallet_path.getAbsolutePath());
-
-                                try {
-
-                                    SnowBlossomClient client = WalletHelper.InitClient(configs);
-                                    // Parsing txt file
-
-
-                                    JsonFormat.Parser parser = JsonFormat.parser();
-                                    WalletDatabase.Builder wallet_import = WalletDatabase.newBuilder();
-                                    Reader input = new InputStreamReader(new FileInputStream(txt_file));
-                                    parser.merge(input, wallet_import);
-
-                                    WalletUtil.testWallet( wallet_import.build() );
-                                    client.getPurse().mergeIn(wallet_import.build());
-
-                                    client.printBasicStats(wallet_import.build());
-
-                                    SharedPreferences.Editor editor = prefs.edit();
-                                    editor.putInt("net", net);
-                                    editor.putBoolean("config",true);
-                                    editor.putString("url", url);
-                                    editor.putString("port", port);
-                                    editor.apply();
-
-                                    Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
-                                    // set the new task and clear flags
-                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                    startActivity(intent);
-                                    finish();
-
-                                }catch (Exception e){
-                                    e.printStackTrace();
-                                }
-
-
-
-
-
-
-
-                            }
-
-
+//                            }
 
                             //end creating wallet
-
-
-
-
-
-
-
-
 
                         } catch (Exception e) {
                             e.printStackTrace();

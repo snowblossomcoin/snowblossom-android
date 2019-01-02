@@ -52,4 +52,9 @@
     <string name="title_connect_server">Conectar</string>
     <string name="title_copy_hash">Toque para copiar hash</string>
     <string name="title_hash_copied">Hash copiado</string>
+    <string name="title_connecting_node">Conectando al nodo...</string>
+    <string name="title_confirm_snow_head">Confirmación</string>
+    <string name="title_confirm_snow_content">¿Confirma usted esta transacción?</string>
+    <string name="title_confirm_snow_negative">Cancelar</string>
+    <string name="title_confirm_snow_positive">Confirmar</string>
 </resources>

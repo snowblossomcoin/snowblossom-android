@@ -1,6 +1,7 @@
 package com.enginious.snowblossom.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -22,10 +23,24 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
     LinearLayout languageLayout;
     @BindView(R.id.linear_layout_wallet_activity)
     LinearLayout walletLayout;
+    @BindView(R.id.linear_layout_about_activity)
+    LinearLayout aboutLayout;
 
+    SharedPreferences prefs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        prefs = getSharedPreferences("configs",MODE_PRIVATE);
+
+        int net = prefs.getInt("net",0);
+
+        if(net == 2) {
+
+            setTheme(R.style.AppThemeTest);
+        }
+
         setContentView(R.layout.activity_setting);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(getString(R.string.title_settings));
@@ -33,6 +48,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         serverLayout.setOnClickListener(this);
         languageLayout.setOnClickListener(this);
         walletLayout.setOnClickListener(this);
+        aboutLayout.setOnClickListener(this);
 
     }
 
@@ -58,6 +74,9 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
         }else if(view.getId() == R.id.linear_layout_wallet_activity){
             Intent intent = new Intent(this,WalletActivity.class);
+            startActivity(intent);
+        }else if(view.getId() == R.id.linear_layout_about_activity){
+            Intent intent = new Intent(this,AboutActivity.class);
             startActivity(intent);
         }
 

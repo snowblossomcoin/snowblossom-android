@@ -35,9 +35,6 @@ public class WalletHelper {
 
     public static long balance = 0;
 
-
-
-
     public static SnowBlossomClient InitClient(TreeMap<String, String> configs) throws Exception {
         client = new SnowBlossomClient(new ConfigMem(configs));
         return client;
@@ -56,8 +53,13 @@ public class WalletHelper {
             @Override
             protected Long doInBackground(Void... voids) {
                 if(client != null) {
-                    long balance = client.getBalance().getSpendable();
-                    return balance;
+                    try {
+                        long balance = client.getBalance().getSpendable();
+                        return balance;
+                    }catch (Exception e){
+                        e.printStackTrace();
+                        return 0l;
+                    }
 
                 }else{
                     return 0l;
@@ -75,9 +77,6 @@ public class WalletHelper {
             }
         }.execute();
     }
-
-
-
     // sending snow to addresses
     @SuppressLint("StaticFieldLeak")
     public static void sendSnow(final long value , final String address , final WalletTransactioninterface transactioninterface){

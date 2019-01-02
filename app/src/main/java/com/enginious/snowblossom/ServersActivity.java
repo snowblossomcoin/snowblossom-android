@@ -52,16 +52,23 @@ public class ServersActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        prefs = getSharedPreferences("configs",MODE_PRIVATE);
+
+        int net = prefs.getInt("net",0);
+
+        if(net == 2) {
+
+            setTheme(R.style.AppThemeTest);
+        }
+
         setContentView(R.layout.activity_servers);
 
 
         ButterKnife.bind(this);
-        prefs = getSharedPreferences("configs",MODE_PRIVATE);
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.activity_servers_toolbar);
-        setSupportActionBar(myToolbar);
+        //prefs = getSharedPreferences("configs",MODE_PRIVATE);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("");
+        getSupportActionBar().setTitle(getString(R.string.title_server_settings));
 
         btnConnect.setOnClickListener(this);
 

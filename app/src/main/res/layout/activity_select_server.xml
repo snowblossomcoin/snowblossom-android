@@ -9,8 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="match_parent"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         >
@@ -19,33 +18,33 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/leafless_tree" />
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
-        android:orientation="horizontal"
-        android:gravity="bottom|center_horizontal"
+        android:layout_weight="3"
+        android:orientation="vertical"
+        android:gravity="center_vertical|center_horizontal"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:paddingBottom="20dp"
-
         >
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_weight="3"
+                android:layout_width="match_parent"
+                android:gravity="center_horizontal"
                 android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/title_server_settings"
-                    android:paddingLeft="5dp"
+
                     android:fontFamily="@font/pt_sans"
                     android:textColor="@color/colorPrimaryDark"
                     />
 
                 <EditText
+                    android:gravity="center_horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pt_sans"
@@ -60,23 +59,25 @@
             </LinearLayout>
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pt_sans"
-                    android:paddingLeft="5dp"
+
                     android:text="Port"
 
                     android:textColor="@color/colorPrimaryDark" />
 
                 <EditText
-                    android:layout_width="match_parent"
+                    android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pt_sans"
+                    android:gravity="center_horizontal"
                     android:hint="Port"
                     android:textSize="18sp"
                     android:text="2339"
@@ -86,16 +87,9 @@
                     android:backgroundTint="@color/colorPrimaryDark"
                     />
             </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center_horizontal"
-            >
             <RadioGroup
-                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:orientation="vertical"
                 android:id="@+id/radio_net_server"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
@@ -118,21 +112,21 @@
                     android:text="Testnet" />
             </RadioGroup>
         </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:gravity="center_horizontal"
-        android:layout_weight="1">
-        <Button
-            android:layout_width="240dp"
-            android:layout_height="50dp"
-            android:background="@drawable/snowbutton_purple"
-            android:fontFamily="@font/pt_sans"
-            android:text="@string/title_continue"
-            android:id="@+id/btn_connect_server"
-            android:textAllCaps="false"
-            android:textColor="@color/colorAccent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_weight="1">
+            <Button
+                android:layout_width="240dp"
+                android:layout_height="50dp"
+                android:background="@drawable/snowbutton_purple"
+                android:fontFamily="@font/pt_sans"
+                android:text="@string/title_continue"
+                android:id="@+id/btn_connect_server"
+                android:textAllCaps="false"
+                android:textColor="@color/colorAccent" />
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

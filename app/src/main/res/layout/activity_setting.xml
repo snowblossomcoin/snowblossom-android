@@ -76,6 +76,7 @@
                 android:layout_height="wrap_content" />
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/linear_layout_about_activity"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal"

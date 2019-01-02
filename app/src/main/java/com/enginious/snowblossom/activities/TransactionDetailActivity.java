@@ -3,6 +3,7 @@ package com.enginious.snowblossom.activities;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -38,9 +39,22 @@ public class TransactionDetailActivity extends AppCompatActivity {
 
     String amount = null;
 
+    SharedPreferences prefs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        prefs = getSharedPreferences("configs",MODE_PRIVATE);
+
+        int net = prefs.getInt("net",0);
+
+        if(net == 2) {
+
+            setTheme(R.style.AppThemeTest);
+        }
+
+
         setContentView(R.layout.activity_transaction_detail);
         ButterKnife.bind(this);
 

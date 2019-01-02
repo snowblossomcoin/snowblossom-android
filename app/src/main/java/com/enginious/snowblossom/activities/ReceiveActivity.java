@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.support.v4.content.ContextCompat;
@@ -47,9 +48,21 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
     @BindView(R.id.btn_generate_receive_activity)
     Button btnGenerate;
 
+    SharedPreferences prefs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        prefs = getSharedPreferences("configs",MODE_PRIVATE);
+
+        int net = prefs.getInt("net",0);
+
+        if(net == 2) {
+
+            setTheme(R.style.AppThemeTest);
+        }
+
         setContentView(R.layout.activity_receive);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

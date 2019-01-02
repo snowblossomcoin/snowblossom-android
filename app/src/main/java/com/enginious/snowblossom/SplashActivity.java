@@ -68,18 +68,11 @@ public class SplashActivity extends AppCompatActivity {
 
     @SuppressLint("StaticFieldLeak")
     private void loadWallet(){
-
-
-
             Boolean is_config = prefs.getBoolean("config",false);
-
             if(is_config) {
-
                 String url = prefs.getString("url", null);
                 String port = prefs.getString("port", null);
-
                 String file_path  = prefs.getString("wallet_path",null);
-
                 url = url.trim();
                 url = url.replace(" ", "");
 
@@ -104,22 +97,17 @@ public class SplashActivity extends AppCompatActivity {
                     configs.put("network", "testnet");
                 }
                 configs.put("wallet_path", file_path);
-
                 try {
                     new AsyncTask<Void,Void,Void>() {
                         @Override
                         protected Void doInBackground(Void... voids) {
                             try {
-
                                 WalletHelper.InitClient(configs);
-
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
-
                             return null;
                         }
-
                         @Override
                         protected void onPostExecute(Void aVoid) {
                             super.onPostExecute(aVoid);

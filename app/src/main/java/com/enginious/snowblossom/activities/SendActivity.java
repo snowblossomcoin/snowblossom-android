@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -19,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.enginious.snowblossom.R;
 import com.enginious.snowblossom.WalletHelper;
@@ -57,17 +59,28 @@ public class SendActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.btn_send_activity)
     Button btn_send;
 
-    @BindView(R.id.txt_balance_send_activity)
-    TextView txtBalance;
+//    @BindView(R.id.txt_balance_send_activity)
+//    TextView txtBalance;
 
-    @BindView(R.id.txt_snow_send_activity)
-    TextView txtSnow;
+//    @BindView(R.id.txt_snow_send_activity)
+//    TextView txtSnow;
 
     SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        prefs = getSharedPreferences("configs",MODE_PRIVATE);
+
+        int net = prefs.getInt("net",0);
+
+        if(net == 2) {
+
+            setTheme(R.style.AppThemeTest);
+        }
+
+
         setContentView(R.layout.activity_send);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -81,21 +94,22 @@ public class SendActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-        long balance = WalletHelper.balance;
-        final double spendable_flakes = (double)balance;
-        final double spendable = spendable_flakes/(double)1000000;
-
-        DecimalFormat df = new DecimalFormat("#.######");
-        df.setRoundingMode(RoundingMode.CEILING);
-        txtBalance.setText("" + df.format(spendable));
+//        long balance = WalletHelper.balance;
+//        final double spendable_flakes = (double)balance;
+//        final double spendable = spendable_flakes/(double)1000000;
+//
+//        DecimalFormat df = new DecimalFormat("#.######");
+//        df.setRoundingMode(RoundingMode.CEILING);
+//        txtBalance.setText("" + df.format(spendable));
 
 
         prefs = getSharedPreferences("configs",MODE_PRIVATE);
-        int net = prefs.getInt("net",0);
+        net = prefs.getInt("net",0);
 
-        if(net!=1){
-            txtSnow.setText("TESTSNOW");
-        }
+//        if(net!=1){
+//            txtSnow.setText("TESTSNOW");
+//        }
+
     }
 
     @Override
@@ -154,7 +168,6 @@ public class SendActivity extends AppCompatActivity implements View.OnClickListe
                 etAddress.setText(address);
             }
         }
-
     }
     @Override
     public void onClick(View view) {
@@ -174,24 +187,52 @@ public class SendActivity extends AppCompatActivity implements View.OnClickListe
                 Log.d("Yes","Yes");
                 return;
             }
-            try {
-                SnowBlossomClient client = WalletHelper.getClient();
 
-                double val_snow = Double.parseDouble(etAmount.getText().toString());
-                long value = (long) (val_snow * Globals.SNOW_VALUE);
-                String to = etAddress.getText().toString();
-                sendSnow(client,value,to,val_snow);
+            String to = etAddress.getText().toString();
+
+            String str_conf = "\nAmount : "+amnt+"\n\nSNOW Address :\n"+to;
 
 
+            AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.AlertDialogTheme);
+            builder.setTitle(getString(R.string.title_confirm_snow_content));
+            builder.setMessage(str_conf);
+            builder.setPositiveButton(getString(R.string.title_confirm_snow_positive), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
 
-            }catch (Exception e){
-                e.printStackTrace();
-            }
+                    SendActivity.this.snowConfirmed();
+                    dialog.cancel();
+
+
+                }
+            });
+            builder.setNegativeButton(getString(R.string.title_confirm_snow_negative), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+            builder.show();
+
+
+
+        }
+    }
+
+    private void snowConfirmed(){
+        try {
+            SnowBlossomClient client = WalletHelper.getClient();
+
+            double val_snow = Double.parseDouble(etAmount.getText().toString());
+            long value = (long) (val_snow * Globals.SNOW_VALUE);
+            String to = etAddress.getText().toString();
+            sendSnow(client,value,to,val_snow);
+        }catch (Exception e){
+            e.printStackTrace();
         }
 
-
-
     }
+
 
 
     private void openCamera(){
@@ -250,7 +291,7 @@ public class SendActivity extends AppCompatActivity implements View.OnClickListe
                     if(success){
                         etAddress.setText("");
                         etAmount.setText("");
-                        calculateBalance(hash,double_amount);
+                        //calculateBalance(hash,double_amount);
                     }else{
 
 
@@ -294,7 +335,7 @@ public class SendActivity extends AppCompatActivity implements View.OnClickListe
                 dialog.dismiss();
                 DecimalFormat df = new DecimalFormat("#.######");
                 df.setRoundingMode(RoundingMode.CEILING);
-                txtBalance.setText(""+df.format(spendable));
+                //txtBalance.setText(""+df.format(spendable));
 
 
                 DecimalFormat df_n = new DecimalFormat("#.######");
