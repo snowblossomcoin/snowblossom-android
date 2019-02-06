@@ -57,6 +57,8 @@ public class WalletActivity extends AppCompatActivity {
     @BindView(R.id.btn_export_wallet_activity)
     Button btn_export;
 
+    @BindView(R.id.btn_export_seed_wallet_activity) Button btn_export_seed;
+
     private static final int READ_REQUEST_CODE = 42;
     private static final int MY_PERMISSIONS_REQUEST = 100;
     private static final int MY_PERMISSIONS_REQUEST_WRITE = 110;
@@ -98,6 +100,14 @@ public class WalletActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 WalletActivity.this.exportWallet();
+            }
+        });
+
+        btn_export_seed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(WalletActivity.this,SeedPreviewActivity.class);
+                startActivity(intent);
             }
         });
 

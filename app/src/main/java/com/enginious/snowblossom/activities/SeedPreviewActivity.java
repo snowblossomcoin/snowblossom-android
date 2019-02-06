@@ -3,9 +3,10 @@ package com.enginious.snowblossom.activities;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -20,8 +21,7 @@ import java.util.List;
 import snowblossom.client.SnowBlossomClient;
 import snowblossom.proto.WalletDatabase;
 
-public class ShowSeedActivity extends AppCompatActivity {
-
+public class SeedPreviewActivity extends AppCompatActivity {
 
     Button btncopy;
     Button btnNext;
@@ -32,16 +32,27 @@ public class ShowSeedActivity extends AppCompatActivity {
 
     String seed = "";
 
+    SharedPreferences prefs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show_seed);
 
-        btncopy = (Button)findViewById(R.id.button_copy_seed);
-        Txtseed = (TextView) findViewById(R.id.textView_seed_seed);
+        prefs = getSharedPreferences("configs",MODE_PRIVATE);
 
-        btnNext = (Button)findViewById(R.id.button_next_seed);
+        int net = prefs.getInt("net",0);
 
+        if(net == 2) {
+
+            setTheme(R.style.AppThemeTest);
+        }
+
+        setContentView(R.layout.activity_seed_preview);
+        btncopy = (Button)findViewById(R.id.button_copy_seedpreview);
+        Txtseed = (TextView) findViewById(R.id.textView_seed_seedpreview);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Export Seed");
 
         client = WalletHelper.getClient();
 
@@ -70,7 +81,7 @@ public class ShowSeedActivity extends AppCompatActivity {
                 ClipData clip = ClipData.newPlainText("seed",seed);
                 clipboard.setPrimaryClip(clip);
 
-                Toast.makeText(ShowSeedActivity.this,"Seed Copied",Toast.LENGTH_SHORT).show();
+                Toast.makeText(SeedPreviewActivity.this,"Seed Copied",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -81,22 +92,14 @@ public class ShowSeedActivity extends AppCompatActivity {
                 ClipData clip = ClipData.newPlainText("seed",seed);
                 clipboard.setPrimaryClip(clip);
 
-                Toast.makeText(ShowSeedActivity.this,"Seed Copied",Toast.LENGTH_SHORT).show();
+                Toast.makeText(SeedPreviewActivity.this,"Seed Copied",Toast.LENGTH_SHORT).show();
             }
         });
-
-        btnNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
-                // set the new task and clear flags
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
-                finish();
-            }
-        });
-
     }
-
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId()==android.R.id.home)
+            finish();
+        return super.onOptionsItemSelected(item);
+    }
 }

@@ -69,7 +69,8 @@
             android:name=".activities.TransactionDetailActivity"
             android:theme="@style/Theme.NoActionBar" />
         <activity android:name=".activities.ShowSeedActivity" />
-        <activity android:name=".activities.EnterSeedActivity"></activity>
+        <activity android:name=".activities.EnterSeedActivity" />
+        <activity android:name=".activities.SeedPreviewActivity"></activity>
     </application>
 
 </manifest>

@@ -40,7 +40,26 @@
             android:layout_height="60dp"
             android:background="@drawable/snowbutton_red"
             android:fontFamily="@font/pt_sans"
-            android:text="Export"
+            android:text="Export File"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            android:textColor="@color/colorAccent" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:gravity="center_vertical|center_horizontal"
+        >
+        <Button
+            android:id="@+id/btn_export_seed_wallet_activity"
+            android:layout_width="220dp"
+            android:layout_height="60dp"
+            android:background="@drawable/snowbutton_purple"
+            android:fontFamily="@font/pt_sans"
+            android:text="Export Seed"
             android:textSize="18sp"
             android:textAllCaps="false"
             android:textColor="@color/colorAccent" />
