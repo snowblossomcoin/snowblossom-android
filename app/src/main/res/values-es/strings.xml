@@ -57,4 +57,8 @@
     <string name="title_confirm_snow_content">¿Confirma usted esta transacción?</string>
     <string name="title_confirm_snow_negative">Cancelar</string>
     <string name="title_confirm_snow_positive">Confirmar</string>
+    <string name="title_import_file">Importar desde archivo</string>
+    <string name="title_seed">Semilla</string>
+    <string name="title_next">Siguiente</string>
+    <string name="title_creating_wallet">Creando billetera</string>
 </resources>

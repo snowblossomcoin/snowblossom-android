@@ -23,6 +23,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import snowblossom.client.SnowBlossomClient;
+
 public class LanguagesActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
@@ -42,6 +44,7 @@ public class LanguagesActivity extends AppCompatActivity {
 
             setTheme(R.style.AppThemeTest);
         }
+
 
         setContentView(R.layout.activity_languages);
 

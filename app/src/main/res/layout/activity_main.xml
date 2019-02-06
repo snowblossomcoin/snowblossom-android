@@ -40,7 +40,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_weight="3"
         android:orientation="vertical"
         android:gravity="bottom|center_horizontal"
         >
@@ -63,6 +63,17 @@
             android:background="@drawable/snowbutton_green"
             android:fontFamily="@font/pt_sans"
             android:text="@string/title_import_main"
+            android:textAllCaps="false"
+            android:id="@+id/btn_import_seed"
+            android:textColor="@color/colorAccent" />
+
+        <Button
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/snowbutton_purple"
+            android:fontFamily="@font/pt_sans"
+            android:text="@string/title_import_file"
             android:textAllCaps="false"
             android:id="@+id/btn_import_main"
             android:textColor="@color/colorAccent" />

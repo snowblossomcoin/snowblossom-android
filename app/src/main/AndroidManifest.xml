@@ -65,8 +65,11 @@
             android:name=".activities.InitLanugageActivity"
             android:configChanges="locale|orientation"
             android:theme="@style/Theme.NoActionBar" />
-        <activity android:name=".activities.TransactionDetailActivity"
-            android:theme="@style/Theme.NoActionBar"></activity>
+        <activity
+            android:name=".activities.TransactionDetailActivity"
+            android:theme="@style/Theme.NoActionBar" />
+        <activity android:name=".activities.ShowSeedActivity" />
+        <activity android:name=".activities.EnterSeedActivity"></activity>
     </application>
 
 </manifest>

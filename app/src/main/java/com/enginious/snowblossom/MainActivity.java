@@ -22,6 +22,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.enginious.snowblossom.activities.EnterSeedActivity;
 import com.enginious.snowblossom.activities.HomeActivity;
 import com.enginious.snowblossom.activities.InitLanugageActivity;
 import com.google.protobuf.util.JsonFormat;
@@ -52,6 +53,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @BindView(R.id.btn_import_main) Button importWallet;
 
+    @BindView(R.id.btn_import_seed) Button btnImportSeed;
+
     SharedPreferences prefs;
 
 
@@ -72,6 +75,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View view) {
                 importWallet();
+            }
+        });
+
+
+        btnImportSeed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, EnterSeedActivity.class);
+//                //i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                i.putExtra("import",false);
+                MainActivity.this.startActivity(i);
+
             }
         });
     }

@@ -15,6 +15,7 @@ import java.util.TreeMap;
 import duckutil.ConfigMem;
 import snowblossom.client.SnowBlossomClient;
 import snowblossom.client.TransactionFactory;
+import snowblossom.client.WalletUtil;
 import snowblossom.lib.AddressSpecHash;
 import snowblossom.lib.AddressUtil;
 import snowblossom.lib.ChainHash;
@@ -37,6 +38,14 @@ public class WalletHelper {
 
     public static SnowBlossomClient InitClient(TreeMap<String, String> configs) throws Exception {
         client = new SnowBlossomClient(new ConfigMem(configs));
+
+        return client;
+
+    }
+    public static SnowBlossomClient InitSeedClient(TreeMap<String, String> configs,String seed) throws Exception {
+        client = new SnowBlossomClient(new ConfigMem(configs),seed);
+
+
         return client;
 
     }

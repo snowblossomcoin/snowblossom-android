@@ -8,7 +8,6 @@
     <string name="title_about_settings">About</string>
 
 
-
     <!--send screen -->
     <string name="title_balance">Balance</string>
     <string name="title_address">Address</string>
@@ -34,6 +33,7 @@
     <string name="title_loading_dialog">Please Wait</string>
     <string name="title_calculating_spendable">Calculating Spendable</string>
     <string name="title_connecting_node">Connecting to node…</string>
+    <string name="title_creating_wallet">Creating Wallet</string>
 
 
     <!--Receive Screen-->
@@ -63,7 +63,8 @@
 
     <string name="title_opensource_main">Snowblossom is an open source cryptocurrency</string>
     <string name="title_create_main">Create Wallet</string>
-    <string name="title_import_main">Import Wallet</string>
+    <string name="title_import_main">Import Wallet From Seed</string>
+    <string name="title_import_file">Import From File</string>
     <string name="title_continue">Continue</string>
 
     <string name="title_connect_server">Connect</string>
@@ -81,6 +82,9 @@
 
     <string name="title_confirm_snow_negative">Cancel</string>
     <string name="title_confirm_snow_positive">Confirm</string>
+
+    <string name="title_next">Next</string>
+    <string name="title_seed">Seed</string>
 
 
 </resources>
