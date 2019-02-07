@@ -100,7 +100,7 @@ public class WalletHelper {
                         tx_config.addOutputs(TransactionOutput.newBuilder().setRecipientSpecHash(to_hash.getBytes()).setValue(value).build());
                         tx_config.setChangeFreshAddress(true);
                         tx_config.setInputConfirmedThenPending(true);
-                        tx_config.setFeeUseEstimate(false);
+                        tx_config.setFeeUseEstimate(true);
 
                         TransactionFactoryResult res = TransactionFactory.createTransaction(tx_config.build(), client.getPurse().getDB(), client);
                         Transaction tx = res.getTx();
