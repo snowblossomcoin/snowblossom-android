@@ -316,11 +316,19 @@ public class SendFragment extends Fragment implements View.OnClickListener{
             @Override
             protected Long doInBackground(Void... voids) {
                 if(client != null) {
-                    long balance = client.getBalance().getSpendable();
-                    return balance;
+                    try
+                    {
+                      long balance = client.getBalance().getSpendable();
+                      return balance;
+                    }
+                    catch(Exception e)
+                    {
+                      e.printStackTrace();
+                      return 0L;
+                    }
 
                 }else{
-                    return 0l;
+                    return 0L;
 
                 }
             }

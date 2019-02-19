@@ -91,6 +91,8 @@ public class HomeFragment extends Fragment {
             @Override
             protected Void doInBackground(Void... voids) {
                 if(client != null) {
+                    try
+                    {
                     long balance = client.getBalance().getSpendable();
                     final double spendable_flakes = (double)balance;
                     final double spendable = spendable_flakes/(double)1000000;
@@ -104,6 +106,12 @@ public class HomeFragment extends Fragment {
                             dialog.dismiss();
                         }
                     });
+                    }
+                    catch(Exception e)
+                    {
+                      e.printStackTrace();
+                    }
+
                 }else{
                     HomeFragment.this.getActivity().runOnUiThread(new Runnable() {
                         @Override
